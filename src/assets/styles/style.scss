@@ -1,6 +1,36 @@
+$background-color: #30343F;
+$primary-color: #E4D9FF;
+$secondary-color: #273469;
+$tertiary-color: #1E2749;
+$text-color: #FAFAFF;
+
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
+
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Montserrat', sans-serif;
+
+  h1 h2 h3 h4 h5 h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: $primary-color;
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    color: $text-color;
+  }
+
+  a {
+    font-family: 'Montserrat', sans-serif;
+    color: $primary-color;
+    text-decoration: none;
+
+    &:visited {
+      color: $primary-color;
+    }
+  }
 }

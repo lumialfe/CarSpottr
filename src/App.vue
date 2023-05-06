@@ -1,10 +1,12 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+import Header from "./components/Header.vue";
 </script>
 
 <template>
+    <Header></Header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 @media (min-width: 1024px) {
 }
