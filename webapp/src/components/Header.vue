@@ -10,7 +10,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/styles/style";
+@import "style.css";
 
 .header {
   display: flex;

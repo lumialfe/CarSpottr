@@ -3,22 +3,24 @@ export default {
     name: "FileDroppper",
     data() {
         return {
-            file: undefined
+            filelist: [] // Store our uploaded files
         }
     },
     methods: {
         onChange() {
-            this.file = [...this.$refs.file.files][0];
+            this.filelist = [...this.$refs.file.files];
+        },
+        remove(i) {
+            this.filelist.splice(i, 1);
         },
         dragover(event) {
             event.preventDefault();
         },
         dragleave(event) {
-            event.preventDefault();
         },
         drop(event) {
             event.preventDefault();
-            this.$refs.file.files[0] = event.dataTransfer.files[0];
+            this.$refs.file.files = event.dataTransfer.files;
             this.onChange();
         }
     }
@@ -34,17 +36,19 @@ export default {
                 Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
             </p>
         </label>
-        <div v-if="this.file !== undefined">
-            {{ file.name }}
-            <button title="Remove file" type="button" @click="this.file = undefined">
-                Remove
-            </button>
-        </div>
+        <ul v-cloak v-if="this.filelist.length" class="mt-4">
+            <li v-for="file in filelist" class="text-sm p-1">
+                {{ file.name }}
+                <button title="Remove file" type="button" @click="remove(filelist.indexOf(file))">
+                    Remove
+                </button>
+            </li>
+        </ul>
     </div>
 </template>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/style";
+@import "webapp/srcassets/styles/style.css";
 
 [v-cloak] {
   display: none;
