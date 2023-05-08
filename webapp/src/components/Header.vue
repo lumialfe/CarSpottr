@@ -4,13 +4,13 @@
 
 <template>
     <header class="header">
-        <a href="index.html"><h1>CarSpottr</h1></a>
+        <a href="../../index.html"><h1>CarSpottr</h1></a>
         <p class="p--small">Powered by DeepLabV3+</p>
     </header>
 </template>
 
 <style lang="scss" scoped>
-@import "style.css";
+@import "../assets/styles/style.css";
 
 .header {
   display: flex;

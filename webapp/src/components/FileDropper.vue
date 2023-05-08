@@ -48,7 +48,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "webapp/srcassets/styles/style.css";
+@import "../assets/styles/style.scss";
 
 [v-cloak] {
   display: none;
