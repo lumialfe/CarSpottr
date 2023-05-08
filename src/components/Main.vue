@@ -3,12 +3,11 @@
     <div
         id="drop_zone"
         ondrop="dropHandler(event);"
-        ondragover="dragOverHandler(event);">
+        ondragover="dragOverHandler(event);"
+        @click="importData()">
       <label for="car-picture">Drag and drop your <b>car picture</b> here or</label>
-
-      <input type="file"
-             id="car-picture" name="car-picture"
-             accept="image/png, image/jpeg">
+      <button id="car-picture">Choose a File</button>
+      <span id="chosen-file"></span>
     </div>
   </div>
 </template>
@@ -21,7 +20,17 @@ export default {
 
     },
     dragOverHandler(event) {
-      event.preventDefault();
+      document.getElementById('drop_zone').style.backgroundColor = '#e2e2e2';
+    },
+    importData() {
+      let input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = _ => {
+        let files = Array.from(input.files);
+        console.log(files);
+        document.getElementById("chosen-file").innerHTML = files[0].name;
+      };
+      input.click();
     }
   }
 }
@@ -48,25 +57,29 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease-in-out;
 
-    input {
-      margin-top: 20px;
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      //TODO
+    }
+
+    button {
+      background: none;
+      color: $primary-color;
       font-family: 'Montserrat', sans-serif;
-      &::file-selector-button {
-        background: none;
-        color: $primary-color;
-        font-family: 'Montserrat', sans-serif;
-        text-transform: uppercase;
-        padding: 10px 20px;
-        border-radius: 5px;
-        border: $primary-color 3px solid;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: $primary-color 3px solid;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      margin-top: 20px;
 
-        &:hover {
-          transition: all 0.3s ease-in-out;
-          background-color: #FAFAFF;
-        }
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        color: $background-color;
+        background-color: #FAFAFF;
+        border: #FAFAFF 3px solid;
       }
     }
   }
