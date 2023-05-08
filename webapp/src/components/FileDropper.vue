@@ -50,10 +50,6 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/styles/style.scss";
 
-[v-cloak] {
-  display: none;
-}
-
 .drop-zone {
   border: 5px dotted $primary-color;
   border-radius: 50px;
