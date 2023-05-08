@@ -15,11 +15,9 @@
   display: flex;
   align-items: center;
 
-  width: 100vw;
   height: 70px;
 
-  box-shadow: #24272f 0px 0px 10px 0px;
-
+  background-color: #30343F;
   a {
     margin-left: 20px;
   }

@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #30343F;
+  color: #FAFAFF;
+  font-family: 'Montserrat', sans-serif; }
+  body h1 h2 h3 h4 h5 h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #E4D9FF; }
+  body p {
+    font-family: 'Montserrat', sans-serif;
+    color: #FAFAFF; }
+  body a {
+    font-family: 'Montserrat', sans-serif;
+    color: #E4D9FF;
+    text-decoration: none; }
+    body a:visited {
+      color: #E4D9FF; }
+
+/*# sourceMappingURL=style.css.map */
