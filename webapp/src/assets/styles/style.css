@@ -3,56 +3,68 @@ body {
   padding: 0;
   background-color: #30343F;
   color: #FAFAFF;
-  font-family: 'Montserrat', sans-serif; }
-  body h1 h2 h3 h4 h5 h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: #d0bffc; }
-  body p {
-    font-family: 'Montserrat', sans-serif;
-    color: #FAFAFF; }
-  body a {
-    font-family: 'Montserrat', sans-serif;
-    color: #d0bffc;
-    text-decoration: none; }
-    body a:visited {
-      color: #d0bffc; }
-  body button {
-    background: none;
-    color: #d0bffc;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: #d0bffc 3px solid;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 20px; }
-    body button:hover {
-      transition: all 0.3s ease-in-out;
-      color: #30343F; }
-  body .button--primary {
-    color: #30343F;
-    background-color: #d0bffc;
-    font-weight: bold; }
-    body .button--primary:hover {
-      transition: all 0.2s ease-in-out;
-      background-color: #30343F;
-      color: #d0bffc;
-      box-shadow: #d0bffc 0px 0px 10px; }
-  body .button--secondary:hover {
-    transition: all 0.2s ease-in-out;
-    background-color: #ffa6a6;
-    border: #ffa6a6 3px solid;
-    font-weight: bold; }
-  body .close-button {
-    border: none;
-    background: none;
-    font-size: 30px;
-    margin: 0; }
-    body .close-button:hover {
-      transition: all 0.3s ease-in-out;
-      color: #d0bffc;
-      background: none;
-      border: none;
-      scale: 1.5; }
+  font-family: "Montserrat", sans-serif;
+}
+body h1 h2 h3 h4 h5 h6 {
+  font-family: "Montserrat", sans-serif;
+  color: #d0bffc;
+}
+body p {
+  font-family: "Montserrat", sans-serif;
+  color: #FAFAFF;
+}
+body a {
+  font-family: "Montserrat", sans-serif;
+  color: #d0bffc;
+  text-decoration: none;
+}
+body a:visited {
+  color: #d0bffc;
+}
+body button {
+  background: none;
+  color: #d0bffc;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: #d0bffc 3px solid;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+body button:hover {
+  transition: all 0.3s ease-in-out;
+  color: #30343F;
+}
+body .button--primary {
+  color: #30343F;
+  background-color: #d0bffc;
+  font-weight: bold;
+}
+body .button--primary:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #30343F;
+  color: #d0bffc;
+  box-shadow: #d0bffc 0px 0px 10px;
+}
+body .button--secondary:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #ffa6a6;
+  border: #ffa6a6 3px solid;
+  font-weight: bold;
+}
+body .close-button {
+  border: none;
+  background: none;
+  font-size: 30px;
+  margin: 0;
+}
+body .close-button:hover {
+  transition: all 0.3s ease-in-out;
+  color: #d0bffc;
+  background: none;
+  border: none;
+  scale: 1.5;
+}
 
 /*# sourceMappingURL=style.css.map */
