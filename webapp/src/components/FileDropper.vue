@@ -7,14 +7,14 @@
         Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
       </p>
     </label>
-    <ul v-cloak v-if="store.getters.files.length">
+    <ul v-if="store.getters.files.length">
       <li v-for="file in store.getters.files" class="text-sm p-1">
         <output>
           <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
           <p v-else>Couldn't load preview</p>
         </output>
         <button class="close-button" title="Remove file" type="button"
-                @click="remove(store.getters.files.indexOf(file))">
+                @click="remove()">
           <i aria-hidden="true" class="fa fa-times"></i>
         </button>
       </li>
@@ -36,13 +36,28 @@ export default {
       return store
     }
   },
+  data() {
+    return {
+      fileList: [],
+      previewUrl: ""
+    }
+  },
+  watch: {
+    fileList: function (val) {
+      store.commit("setFiles", val);
+    },
+    previewUrl: function (val) {
+      store.commit("setPreviewUrl", val);
+    }
+  },
   methods: {
     onChange(event) {
-      store.commit("setFiles", event.dataTransfer.files);
+      this.fileList = [...this.$refs.file.files];
       this.onFileChange(event);
     },
-    remove(i) {
-      store.commit("removeFile", i);
+    remove() {
+      this.fileList = [];
+      this.previewUrl = "";
     },
     dragover(event) {
       event.preventDefault();
@@ -51,6 +66,7 @@ export default {
     },
     drop(event) {
       event.preventDefault();
+      this.fileList = event.dataTransfer.files;
       this.onChange(event);
     },
     onFileChange: function (event) {
@@ -64,16 +80,16 @@ export default {
       const reader = new FileReader()
       const that = this
       reader.onload = function (e) {
-        store.commit("setPreviewUrl", e.target.result);
+        that.previewUrl = e.target.result
       }
       reader.readAsDataURL(file)
     },
     cancel() {
-      store.commit("setFiles", []);
-      store.commit("etPreviewUrl", "");
+      this.fileList = [];
+      this.previewUrl = "";
     },
     next() {
-      window.alert(store.getters.files[0].name);
+      window.alert(this.fileList[0].name);
     }
   }
 }
