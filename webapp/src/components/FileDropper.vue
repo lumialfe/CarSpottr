@@ -1,51 +1,71 @@
+<template>
+  <div class="drop-zone" @dragleave="dragleave" @dragover="dragover" @drop="drop">
+    <input id="assetsFieldHandle" ref="file" accept=".jpg,.jpeg,.png" style="display: none" type="file"
+           @change="onChange"/>
+    <label class="block cursor-pointer" for="assetsFieldHandle">
+      <p>
+        Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
+      </p>
+    </label>
+    <ul v-cloak v-if="this.fileList.length" class="mt-4">
+      <li v-for="file in fileList" class="text-sm p-1">
+        <output>
+          <img v-if="previewUrl" :src="previewUrl" class="img--preview">
+          <p v-else>Couldn't load preview</p>
+        </output>
+        <button class="close-button" title="Remove file" type="button" @click="remove(fileList.indexOf(file))">
+          <i aria-hidden="true" class="fa fa-times"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</template>
+
 <script>
 export default {
-    name: "FileDroppper",
-    data() {
-        return {
-            filelist: [] // Store our uploaded files
-        }
-    },
-    methods: {
-        onChange() {
-            this.filelist = [...this.$refs.file.files];
-        },
-        remove(i) {
-            this.filelist.splice(i, 1);
-        },
-        dragover(event) {
-            event.preventDefault();
-        },
-        dragleave(event) {
-        },
-        drop(event) {
-            event.preventDefault();
-            this.$refs.file.files = event.dataTransfer.files;
-            this.onChange();
-        }
+  name: "FileDroppper",
+  data() {
+    return {
+      fileList: [], // Store our uploaded files
+      previewUrl: ""
     }
+  },
+  methods: {
+    onChange(event) {
+      this.fileList = [...this.$refs.file.files];
+      this.onFileChange(event);
+    },
+    remove(i) {
+      this.fileList.splice(i, 1);
+    },
+    dragover(event) {
+      event.preventDefault();
+    },
+    dragleave(event) {
+    },
+    drop(event) {
+      event.preventDefault();
+      this.$refs.file.files = event.dataTransfer.files;
+      this.onChange(event);
+    },
+    onFileChange: function (event) {
+      const file = event.target.files[0]
+      if (!file) {
+        return false
+      }
+      if (!file.type.match('image.*')) {
+        return false
+      }
+      const reader = new FileReader()
+      const that = this
+      reader.onload = function (e) {
+        that.previewUrl = e.target.result
+      }
+      reader.readAsDataURL(file)
+    }
+  }
 }
 </script>
-
-<template>
-    <div class="drop-zone" @dragleave="dragleave" @dragover="dragover" @drop="drop">
-        <input id="assetsFieldHandle" ref="file" accept=".jpg,.jpeg,.png" style="display: none" type="file"
-               @change="onChange"/>
-        <label class="block cursor-pointer" for="assetsFieldHandle">
-            <p>
-                Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
-            </p>
-        </label>
-        <ul v-cloak v-if="this.filelist.length" class="mt-4">
-            <li v-for="file in filelist" class="text-sm p-1">
-                {{ file.name }}
-                <button title="Remove file" type="button" @click="remove(filelist.indexOf(file))">
-                    Remove
-                </button>
-            </li>
-        </ul>
-    </div>
-</template>
 
 <style lang="scss" scoped>
 @import "../assets/styles/style.scss";
@@ -76,22 +96,14 @@ export default {
     }
   }
 
-  button {
-    background: none;
-    color: $primary-color;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: $primary-color 3px solid;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 20px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-    &:hover {
-      transition: all 0.3s ease-in-out;
-      color: $background-color;
-      background-color: #FAFAFF;
-      border: #FAFAFF 3px solid;
+    .img--preview {
+      width: 200px;
+      border-radius: 10px;
     }
   }
 }

@@ -3,23 +3,44 @@ body {
   padding: 0;
   background-color: #30343F;
   color: #FAFAFF;
-  font-family: "Montserrat", sans-serif;
-}
-body h1 h2 h3 h4 h5 h6 {
-  font-family: "Montserrat", sans-serif;
-  color: #E4D9FF;
-}
-body p {
-  font-family: "Montserrat", sans-serif;
-  color: #FAFAFF;
-}
-body a {
-  font-family: "Montserrat", sans-serif;
-  color: #E4D9FF;
-  text-decoration: none;
-}
-body a:visited {
-  color: #E4D9FF;
-}
+  font-family: 'Montserrat', sans-serif; }
+  body h1 h2 h3 h4 h5 h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #E4D9FF; }
+  body p {
+    font-family: 'Montserrat', sans-serif;
+    color: #FAFAFF; }
+  body a {
+    font-family: 'Montserrat', sans-serif;
+    color: #E4D9FF;
+    text-decoration: none; }
+    body a:visited {
+      color: #E4D9FF; }
+  body button {
+    background: none;
+    color: #E4D9FF;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: #E4D9FF 3px solid;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px; }
+    body button:hover {
+      transition: all 0.3s ease-in-out;
+      color: #30343F;
+      background-color: #FAFAFF;
+      border: #FAFAFF 3px solid; }
+  body .close-button {
+    border: none;
+    background: none;
+    font-size: 30px;
+    margin: 0; }
+    body .close-button:hover {
+      transition: all 0.3s ease-in-out;
+      color: #E4D9FF;
+      background: none;
+      border: none;
+      scale: 1.5; }
 
 /*# sourceMappingURL=style.css.map */

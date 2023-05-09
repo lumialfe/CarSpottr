@@ -29,4 +29,38 @@ body {
       color: $primary-color;
     }
   }
+
+  button {
+    background: none;
+    color: $primary-color;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: $primary-color 3px solid;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      color: $background-color;
+      background-color: #FAFAFF;
+      border: #FAFAFF 3px solid;
+    }
+  }
+
+  .close-button {
+    border: none;
+    background: none;
+    font-size: 30px;
+    margin: 0;
+
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      color: $primary-color;
+      background: none;
+      border: none;
+      scale: 1.5;
+    }
+  }
 }
