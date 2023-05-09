@@ -89,7 +89,7 @@ export default {
       this.previewUrl = "";
     },
     next() {
-      window.alert(this.fileList[0].name);
+      store.dispatch("predict");
     }
   }
 }
