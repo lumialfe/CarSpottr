@@ -20,7 +20,7 @@
     </ul>
   </div>
   <div v-if="this.fileList.length" class="buttons">
-    <button class="button--secondary" @click="back()">Back</button>
+    <button class="button--secondary" @click="cancel()">Cancel</button>
     <button class="button--primary" @click="next()">Next</button>
   </div>
 </template>
@@ -66,6 +66,13 @@ export default {
         that.previewUrl = e.target.result
       }
       reader.readAsDataURL(file)
+    },
+    cancel() {
+      this.fileList = [];
+      this.previewUrl = "";
+    },
+    next() {
+      window.alert(this.fileList[0].name);
     }
   }
 }
@@ -106,7 +113,7 @@ export default {
     justify-content: space-around;
 
     .img--preview {
-      width: 200px;
+      max-height: 100px;
       border-radius: 10px;
     }
   }
