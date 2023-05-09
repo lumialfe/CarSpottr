@@ -7,7 +7,7 @@
         Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
       </p>
     </label>
-    <ul v-cloak v-if="this.fileList.length" class="mt-4">
+    <ul v-cloak v-if="this.fileList.length">
       <li v-for="file in fileList" class="text-sm p-1">
         <output>
           <img v-if="previewUrl" :src="previewUrl" class="img--preview">
@@ -18,6 +18,10 @@
         </button>
       </li>
     </ul>
+  </div>
+  <div v-if="this.fileList.length" class="buttons">
+    <button class="button--secondary" @click="back()">Back</button>
+    <button class="button--primary" @click="next()">Next</button>
   </div>
 </template>
 
@@ -106,5 +110,15 @@ export default {
       border-radius: 10px;
     }
   }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 15px;
+
+  width: 700px;
 }
 </style>

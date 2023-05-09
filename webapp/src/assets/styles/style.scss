@@ -1,6 +1,7 @@
 $background-color: #30343F;
 $primary-color: #E4D9FF;
 $text-color: #FAFAFF;
+$cancel-color: #ffa6a6;
 
 body {
   margin: 0;
@@ -44,8 +45,28 @@ body {
     &:hover {
       transition: all 0.3s ease-in-out;
       color: $background-color;
-      background-color: #FAFAFF;
-      border: #FAFAFF 3px solid;
+    }
+  }
+
+  .button--primary {
+    color: $background-color;
+    background-color: $primary-color;
+    font-weight: bold;
+
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      background-color: $background-color;
+      color: $primary-color;
+      box-shadow: $primary-color 0px 0px 10px;
+    }
+  }
+
+  .button--secondary {
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      background-color: $cancel-color;
+      border: $cancel-color 3px solid;
+      font-weight: bold;
     }
   }
 

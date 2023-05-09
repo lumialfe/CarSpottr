@@ -28,9 +28,21 @@ body {
     margin-top: 20px; }
     body button:hover {
       transition: all 0.3s ease-in-out;
-      color: #30343F;
-      background-color: #FAFAFF;
-      border: #FAFAFF 3px solid; }
+      color: #30343F; }
+  body .button--primary {
+    color: #30343F;
+    background-color: #E4D9FF;
+    font-weight: bold; }
+    body .button--primary:hover {
+      transition: all 0.2s ease-in-out;
+      background-color: #30343F;
+      color: #E4D9FF;
+      box-shadow: #E4D9FF 0px 0px 10px; }
+  body .button--secondary:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #ffa6a6;
+    border: #ffa6a6 3px solid;
+    font-weight: bold; }
   body .close-button {
     border: none;
     background: none;
