@@ -7,40 +7,42 @@
         Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
       </p>
     </label>
-    <ul v-cloak v-if="this.fileList.length">
-      <li v-for="file in fileList" class="text-sm p-1">
+    <ul v-cloak v-if="store.getters.files.length">
+      <li v-for="file in store.getters.files" class="text-sm p-1">
         <output>
-          <img v-if="previewUrl" :src="previewUrl" class="img--preview">
+          <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
           <p v-else>Couldn't load preview</p>
         </output>
-        <button class="close-button" title="Remove file" type="button" @click="remove(fileList.indexOf(file))">
+        <button class="close-button" title="Remove file" type="button"
+                @click="remove(store.getters.files.indexOf(file))">
           <i aria-hidden="true" class="fa fa-times"></i>
         </button>
       </li>
     </ul>
   </div>
-  <div v-if="this.fileList.length" class="buttons">
+  <div v-if="store.getters.files.length" class="buttons">
     <button class="button--secondary" @click="cancel()">Cancel</button>
     <button class="button--primary" @click="next()">Next</button>
   </div>
 </template>
 
 <script>
+import {store} from "@/store/store";
+
 export default {
   name: "FileDroppper",
-  data() {
-    return {
-      fileList: [], // Store our uploaded files
-      previewUrl: ""
+  computed: {
+    store() {
+      return store
     }
   },
   methods: {
     onChange(event) {
-      this.fileList = [...this.$refs.file.files];
+      store.commit("setFiles", event.dataTransfer.files);
       this.onFileChange(event);
     },
     remove(i) {
-      this.fileList.splice(i, 1);
+      store.commit("removeFile", i);
     },
     dragover(event) {
       event.preventDefault();
@@ -49,7 +51,6 @@ export default {
     },
     drop(event) {
       event.preventDefault();
-      this.$refs.file.files = event.dataTransfer.files;
       this.onChange(event);
     },
     onFileChange: function (event) {
@@ -63,16 +64,16 @@ export default {
       const reader = new FileReader()
       const that = this
       reader.onload = function (e) {
-        that.previewUrl = e.target.result
+        store.commit("setPreviewUrl", e.target.result);
       }
       reader.readAsDataURL(file)
     },
     cancel() {
-      this.fileList = [];
-      this.previewUrl = "";
+      store.commit("setFiles", []);
+      store.commit("etPreviewUrl", "");
     },
     next() {
-      window.alert(this.fileList[0].name);
+      window.alert(store.getters.files[0].name);
     }
   }
 }
