@@ -1,29 +1,20 @@
-# carspottr
+##Qué son las redes convolucionales.
+Las redes convolucionales, también conocidas como Convolutional Neural Networks, ConvNets o CNNs, son una clase de red neuronal artificial que destacan por su habilidad en el reconocimiento de patrones de píxeles. Es por ello que son usadas, generalmente, en ámbitos relacionados con el procesamiento y reconocimiento de imágenes.
 
-This template should help get you started developing with Vue 3 in Vite.
+##¿Cuáles son las capas de una red convolucional?
 
-## Recommended IDE Setup
+##Qué es Segmentación de Imágenes
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+##¿Qué modelos de segmentación de imagenes conoces (comprobación del estado del arte): Unet, Deeplab v3+, Mask-R-CNN...
 
-## Customize configuration
+##DeepLabV3+:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+##Propuesta de tu investigación: Utilizar Blender para Data Augmentation...
 
-## Project Setup
+##¿Qué es blender?
 
-```sh
-npm install
-```
+##¿Cómo se programa python en blender?
 
-### Compile and Hot-Reload for Development
+##Ventajas, problemas de la conducción automática
 
-```sh
-npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
