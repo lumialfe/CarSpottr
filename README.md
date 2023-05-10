@@ -54,6 +54,8 @@ entender mejor la arquitectura de una red convolucional.
 
 ## Qué es la Segmentación de Imágenes
 
+La segmentación de imágenes, image segmentation en inglés,
+
 ## ¿Qué modelos de segmentación de imagenes conoces (comprobación del estado del arte): Unet, Deeplab v3+, Mask-R-CNN...
 
 ## DeepLabV3+:
