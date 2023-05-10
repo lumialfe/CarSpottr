@@ -13,7 +13,10 @@ visual de los animales. En concreto, se inspira en el funcionamiento de las neur
 encuentran en la corteza visual primaria de los gatos. Estas neuronas son capaces de responder a estímulos visuales en
 un campo receptivo reducido, pero que se repite en toda la superficie de la corteza visual. De esta manera, las neuronas
 de tipo simple responden a estímulos visuales en un campo receptivo reducido, mientras que las neuronas de tipo complejo
-responden a estímulos visuales en un campo receptivo más amplio.
+responden a estímulos visuales en un campo receptivo más amplio. Las redes convolucionales se basan en este principio de
+la siguiente manera: cada neurona de la red se encarga de procesar un campo receptivo reducido, mientras que la red en
+su conjunto es capaz de procesar un campo receptivo más amplio. De esta manera, las redes convolucionales son capaces de
+extraer características de la imagen, y de detectar patrones en ella.
 
 Para comprender mejor el funcionamiento de las redes convolucionales, es importante conocer algunos conceptos básicos de
 las redes neuronales, así como la historia de su desarrollo. A continuación, se explican brevemente estos conceptos.
@@ -28,14 +31,34 @@ de clasificación y regresión. Además, las redes neuronales son capaces de apr
 datos de entrada, por lo que también son muy útiles en tareas de reconocimiento de patrones.
 
 Su desarrollo se remonta a los años 40, cuando Warren McCulloch y Walter Pitts publicaron un artículo en el que
-describían un modelo matemático de una neurona. En 1958, Frank Rosenblatt desarrolló el Perceptrón, un algoritmo de
-aprendizaje supervisado para clasificación binaria. El Perceptrón fue el primer modelo de red neuronal artificial, y
-supuso un gran avance en el campo de las redes neuronales. Sin embargo, el Perceptrón tenía algunas limitaciones, como
-la incapacidad de resolver problemas no lineales. Esto provocó que el interés en las redes neuronales disminuyera
-durante los años 70 y 80. No fue hasta los años 90 cuando las redes neuronales volvieron a ganar popularidad, gracias a
-la publicación de varios artículos que demostraban que las eran capaces de resolver problemas no lineales. Desde
-entonces, las redes neuronales han ido ganando popularidad, y en la actualidad son una de las herramientas más
-utilizadas en el campo del Machine Learning.
+describían el modelo matemático de una neurona, y cómo podía ser usada para modelar el funcionamiento del cerebro
+humano. En 1958, Frank Rosenblatt desarrolló el Perceptrón, un algoritmo de aprendizaje supervisado para clasificación
+binaria. El Perceptrón estaba formado por una única neurona, y fue el primer modelo de red neuronal artificial. En 1969,
+Marvin Minsky y Seymour Papert publicaron un libro en el que demostraban que el Perceptrón no era capaz de resolver
+problemas no lineales. Esto provocó que el interés en las redes neuronales disminuyera durante los años 70 y 80. No fue
+hasta los años 90 cuando las redes neuronales volvieron a ganar popularidad, gracias a la publicación de varios
+artículos que demostraban que las eran capaces de aproximar problemas no lineales dados un número suficiente de neuronas
+y datos de entrada. Desde entonces, las redes neuronales han ido ganando popularidad, y en la actualidad son una de las
+herramientas más utilizadas en el campo del Machine Learning.
+
+#### Historia de las redes convolucionales
+
+La primera red convolucional fue desarrollada en 1980 por Kunihiko Fukushima, y se llamaba Neocognitron. Esta red
+introdujo dos tipos de capas que son fundamentales en las redes convolucionales: las capas convolucionales y las capas
+de submuestreo. Las capas convolucionales se encargan de extraer características de la imagen, mientras que las capas de
+submuestreo se encargan de reducir la dimensionalidad de la imagen, o lo que es lo mismo, de reducir el tamaño de la
+imagen.
+
+Años más tarde, en 1989, Yann LeCun, Léon Bottou, Yoshua Bengio y Patrick Haffner
+desarrollarron LeNet, una red convolucional que fue utilizada para reconocer dígitos escritos a mano. Esta red fue la
+primera en utilizar el algoritmo de aprendizaje backpropagation, y fue la primera en ser utilizada en un producto
+comercial, en concreto, un sistema de reconocimiento de códigos postales para el Servicio Postal de Estados Unidos.
+
+En la actualidad, las redes convolucionales son uno de los modelos más utilizados en el campo del Machine Learning, y el
+númerp de arquitecturas de redes convolucionales es muy elevado. A continuación se muestran algunas de las arquitecturas
+más conocidas y utilizadas en la actualidad:
+
+*
 
 ### ¿Cuáles son las capas de una red convolucional?
 
