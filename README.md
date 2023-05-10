@@ -8,6 +8,35 @@ Las redes convolucionales, también conocidas como Convolutional Neural Networks
 neuronal artificial que destacan por su habilidad en el reconocimiento de patrones de píxeles. Es por ello que son
 usadas, generalmente, en ámbitos relacionados con el procesamiento y reconocimiento de imágenes.
 
+Las redes convolucionales son un tipo de red neuronal artificial que se inspira en el funcionamiento de la corteza
+visual de los animales. En concreto, se inspira en el funcionamiento de las neuronas de tipo simple y complejo que se
+encuentran en la corteza visual primaria de los gatos. Estas neuronas son capaces de responder a estímulos visuales en
+un campo receptivo reducido, pero que se repite en toda la superficie de la corteza visual. De esta manera, las neuronas
+de tipo simple responden a estímulos visuales en un campo receptivo reducido, mientras que las neuronas de tipo complejo
+responden a estímulos visuales en un campo receptivo más amplio.
+
+Para comprender mejor el funcionamiento de las redes convolucionales, es importante conocer algunos conceptos básicos de
+las redes neuronales, así como la historia de su desarrollo. A continuación, se explican brevemente estos conceptos.
+
+#### ¿Qué son las redes neuronales?
+
+Las redes neuronales son un modelo computacional inspirado en el funcionamiento del cerebro humano. Están formadas por
+un conjunto de neuronas artificiales que se organizan en capas, y que se encargan de procesar la información de entrada
+y generar una salida. Las redes neuronales son capaces de aprender a partir de un conjunto de datos, y de generalizar
+para poder realizar predicciones sobre datos que no han sido vistos anteriormente. Por ello, son muy útiles en tareas
+de clasificación y regresión. Además, las redes neuronales son capaces de aprender a extraer características de los
+datos de entrada, por lo que también son muy útiles en tareas de reconocimiento de patrones.
+
+Su desarrollo se remonta a los años 40, cuando Warren McCulloch y Walter Pitts publicaron un artículo en el que
+describían un modelo matemático de una neurona. En 1958, Frank Rosenblatt desarrolló el Perceptrón, un algoritmo de
+aprendizaje supervisado para clasificación binaria. El Perceptrón fue el primer modelo de red neuronal artificial, y
+supuso un gran avance en el campo de las redes neuronales. Sin embargo, el Perceptrón tenía algunas limitaciones, como
+la incapacidad de resolver problemas no lineales. Esto provocó que el interés en las redes neuronales disminuyera
+durante los años 70 y 80. No fue hasta los años 90 cuando las redes neuronales volvieron a ganar popularidad, gracias a
+la publicación de varios artículos que demostraban que las eran capaces de resolver problemas no lineales. Desde
+entonces, las redes neuronales han ido ganando popularidad, y en la actualidad son una de las herramientas más
+utilizadas en el campo del Machine Learning.
+
 ### ¿Cuáles son las capas de una red convolucional?
 
 Las redes convolucionales están formadas por una serie de capas, cada una de ellas con una función específica. A la hora
