@@ -1,14 +1,29 @@
 # Documentación
 
-## Qué son las redes convolucionales.
+## Redes Convolucionales
+
+### Qué son las redes convolucionales.
 
 Las redes convolucionales, también conocidas como Convolutional Neural Networks, ConvNets o CNNs, son una clase de red
 neuronal artificial que destacan por su habilidad en el reconocimiento de patrones de píxeles. Es por ello que son
 usadas, generalmente, en ámbitos relacionados con el procesamiento y reconocimiento de imágenes.
 
-## ¿Cuáles son las capas de una red convolucional?
+### ¿Cuáles son las capas de una red convolucional?
 
-## Qué es Segmentación de Imágenes
+Las redes convolucionales están formadas por una serie de capas, cada una de ellas con una función específica. A la hora
+de crear una red convolucional, es importante conocer las características de cada una de estas capas, ya que de ello
+dependerá el resultado final de la red. En general, una red neuronal está formada por tres tipos de capas: entrada,
+oculta(s) y salida. De manera similar al apartado anterior, exploremos primero estos conceptos generales para poder
+entender mejor la arquitectura de una red convolucional.
+
+* Capa de Entrada: Es la capa encargada de aceptar los datos de entrada y distriburilos al resto de capas de la red.
+* Capa(s) Oculta: Son las capas intermedias de la red, que se encargan de procesar los datos de entrada y generar una
+  salida. Como mínimo una red neuronal tiene una capa oculta, pero puede tener más de una. En el caso de las redes
+  profundas o deep, el número de capas ocultas es muy elevado, pudiendo llegar a cientos o miles de capas.
+* Capa de Salida: Es la capa encargada de generar la salida de la red, que puede ser un valor numérico, una categoría o
+  una probabilidad.
+
+## Qué es la Segmentación de Imágenes
 
 ## ¿Qué modelos de segmentación de imagenes conoces (comprobación del estado del arte): Unet, Deeplab v3+, Mask-R-CNN...
 
