@@ -33,10 +33,23 @@ export const store: Store<ComponentCustomProperties> = createStore({
         }
     },
     actions: {
-        predict({commit}) {
+        predict({commit, state}) {
             commit("setIsLoading", true);
 
+            let formData = new FormData();
+            formData.append("image", state.files[0]);
+
             // Call API
+            fetch('http://127.0.0.1:8000/predict/', {
+                method: 'POST',
+                headers: {
+                    'accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"image": state.files[0]}),
+            })
+                .then(response => response.json())
+                .then(response => console.log(JSON.stringify(response)))
 
             commit("setIsLoading", false);
             commit("setIsShowingResults", true);

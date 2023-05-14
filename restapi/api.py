@@ -14,7 +14,7 @@ from uvicorn import run
 import os
 
 app = FastAPI()
-model_dir = "\\model\\model.h5"
+model_dir = "./model/model.h5"
 model = load_model(model_dir)
 
 
