@@ -36,9 +36,6 @@ export const store: Store<ComponentCustomProperties> = createStore({
         predict({commit, state}) {
             commit("setIsLoading", true);
 
-            let formData = new FormData();
-            formData.append("image", state.files[0]);
-
             // Call API
             fetch('http://127.0.0.1:8000/predict/', {
                 method: 'POST',
