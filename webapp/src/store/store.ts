@@ -38,8 +38,10 @@ export const store: Store<ComponentCustomProperties> = createStore({
 
             // Call API
             fetch('http://127.0.0.1:8000/predict/', {
+                mode: 'cors',
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': '*',
                     'accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
