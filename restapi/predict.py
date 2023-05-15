@@ -5,16 +5,12 @@ import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 import numpy as np
 import cv2
-from glob import glob
-from tqdm import tqdm
 import tensorflow as tf
 from tensorflow.keras.utils import CustomObjectScope
 from metrics import dice_loss, dice_coef, iou
 from uvicorn import run
 from pydantic import BaseModel
 import base64
-from fastapi.responses import Response
-
 
 # Global Parameters
 HEIGHT = 256
@@ -36,6 +32,10 @@ app.add_middleware(
     allow_headers = headers    
 )
 
+# Load the model
+with CustomObjectScope({'iou': iou, 'dice_coef': dice_coef, 'dice_loss': dice_loss}):
+    model = tf.keras.models.load_model("model/model.h5")
+
 def encode(img):
     img = cv2.imencode('.png', img)
     img = img[1]
@@ -53,10 +53,6 @@ class Params(BaseModel):
 async def predict(params: Params):
     if params.image == "":
         return {"message": "No image link provided"}
-    
-    # Load the model
-    with CustomObjectScope({'iou': iou, 'dice_coef': dice_coef, 'dice_loss': dice_loss}):
-        model = tf.keras.models.load_model("model/model.h5")
     
     # Decode image
     bytes = params.image.encode('utf-8')
@@ -96,9 +92,6 @@ async def predict(params: Params):
     return {"image" : str(x),
             "mask" : str(y),
             "result" : str(res)}
-
-    
-    
     
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
