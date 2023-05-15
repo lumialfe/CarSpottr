@@ -7,7 +7,7 @@ services:
   webapp:
     build: ./webapp
     ports:
-    - "5173:5173"
+    - "8080:8080"
     depends_on:
       - restapi
     healthcheck:

@@ -20,4 +20,4 @@ RUN pip install -r requirements.txt
 COPY  . .
 
 # Run the python application
-CMD ["python", "api.py"]
+CMD ["python", "predict.py"]
