@@ -57,6 +57,13 @@ export default {
     img {
       max-width: 14vw;
       border-radius: 15px;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        transition: all .3s ease-in-out;
+
+        scale: 1.2;
+      }
     }
   }
 
