@@ -1,10 +1,10 @@
 WebApp
     docker build -t carspottr/webapp .
-    docker run -it -p 8080:8080 --rm --name carspottr carspottr/webapp
+    docker run -it -p 8080:8080 --rm --name carspottr-webapp carspottr/webapp
 
     npm run dev
 RestAPI
     docker build -t carspottr/restapi .
-    docker run -it -p 5000:5000 --rm --name carspottr carspottr/restapi
+    docker run -it -p 5000:5000 --rm --name carspottr-restapi carspottr/restapi
 
     uvicorn predict:app --reload

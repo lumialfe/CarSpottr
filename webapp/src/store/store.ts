@@ -1,6 +1,7 @@
 import {createStore, Store,} from "vuex";
 
 import type {ComponentCustomProperties} from "vue";
+import {api_predict} from "./endpoint.js";
 
 export const store: Store<ComponentCustomProperties> = createStore({
     state: {
@@ -52,7 +53,7 @@ export const store: Store<ComponentCustomProperties> = createStore({
             commit("setIsLoading", true);
 
             // Call API
-            fetch('http://127.0.0.1:8000/predict/', {
+            fetch(api_predict, {
                 mode: 'cors',
                 method: 'POST',
                 headers: {

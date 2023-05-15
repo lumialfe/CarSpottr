@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -U pip
 # Copy application requirements file to the created working directory
 COPY requirements.txt .
 
+# RUN apt-get update && apt-get install -y python3-opencv
+
 # Install application dependencies from the requirements file
 RUN pip install -r requirements.txt
 

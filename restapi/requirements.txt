@@ -1,6 +1,5 @@
 fastapi
 uvicorn
 numpy
-opencv-python
-tqdm
+opencv-python-headless
 tensorflow
