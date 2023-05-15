@@ -8,12 +8,14 @@ export const store: Store<ComponentCustomProperties> = createStore({
         previewUrl: "",
         isShowingResults: false,
         isLoading: false,
+        result: ""
     },
     getters: {
         files: (state) => state.files,
         previewUrl: (state) => state.previewUrl,
         isShowingResults: (state) => state.isShowingResults,
         isLoading: (state) => state.isLoading,
+        getResult: (state) => state.result
     },
     mutations: {
         setFiles(state, file) {
@@ -30,6 +32,9 @@ export const store: Store<ComponentCustomProperties> = createStore({
         },
         setIsLoading(state, isLoading) {
             state.isLoading = isLoading;
+        },
+        setResult(state, result) {
+            state.result = result;
         }
     },
     actions: {
@@ -42,13 +47,18 @@ export const store: Store<ComponentCustomProperties> = createStore({
                 method: 'POST',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': 'true',
+                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
                     'accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({"image": state.files[0]}),
             })
                 .then(response => response.json())
-                .then(response => console.log(JSON.stringify(response)))
+                .then(response => {
+                    console.log(response);
+                    commit("setResult", "data:image/jpg;base64," + response["mask"].split("'")[1]);
+                })
 
             commit("setIsLoading", false);
             commit("setIsShowingResults", true);

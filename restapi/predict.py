@@ -13,6 +13,7 @@ from metrics import dice_loss, dice_coef, iou
 from uvicorn import run
 from pydantic import BaseModel
 import base64
+from fastapi.responses import Response
 
 
 # Global Parameters
@@ -42,7 +43,9 @@ async def root():
 class Params(BaseModel):
     image: str
 
-@app.post("/predict/")
+@app.post(
+    "/predict/",
+)
 async def predict(params: Params):
     if params.image == "":
         return {"message": "No image link provided"}
@@ -53,21 +56,45 @@ async def predict(params: Params):
     
     # Decode image
     bytes = params.image.encode('utf-8')
-    numpyArray = np.fromstring(bytes, np.uint8)
     image = base64.decodebytes(bytes)
+    image = np.frombuffer(image, dtype=np.uint8)
         
     # Get the image
-    image = cv2.imdecode(np.frombuffer(bytes, dtype=np.uint8), cv2.IMREAD_COLOR)
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    
     h, w, _ = image.shape
     x = cv2.resize(image, (WIDTH, HEIGHT))
     x = x/255.0
     x = x.astype(np.float32)
     x = np.expand_dims(x, axis=0)
+    
 
     # Make a prediction
     y = model.predict(x)[0]
     y = cv2.resize(y, (w, h))
     y = np.expand_dims(y, axis=-1)
+    
+    x = cv2.resize(image, (w, h))
+    res = cv2.cvtColor(x, cv2.COLOR_RGB2RGBA)
+    
+    for i in range(len(y)):
+        for j in range(len(y[i])):
+            if (y[i][j] > 0.9):
+                y[i][j] = 255
+            else:
+                 y[i][j] = 0
+                 res[i][j][3] = 0
+                
+    
+    
+    mask = cv2.imencode('.png', res)
+    mask = mask[1]
+    
+    print(mask)
+    
+    mask = base64.b64encode(mask)
+    #print(mask)
+    return {"mask" : str(mask)}
 
     
     

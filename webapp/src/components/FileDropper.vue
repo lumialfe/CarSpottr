@@ -112,7 +112,7 @@ export default {
 
             const arrayOfBase64 = await fileListToBase64([file]);
 
-            console.log(arrayOfBase64[0].split(",")[1]);
+            //console.log(arrayOfBase64[0].split(",")[1]);
             store.commit("setFiles", [arrayOfBase64[0].split(",")[1]]);
 
         },
