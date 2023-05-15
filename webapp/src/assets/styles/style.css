@@ -25,7 +25,7 @@ body button {
   background: none;
   color: #d0bffc;
   font-family: "Montserrat", sans-serif;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 5px;
   border: #d0bffc 3px solid;
   cursor: pointer;
@@ -40,12 +40,16 @@ body .button--primary {
   color: #30343F;
   background-color: #d0bffc;
   font-weight: bold;
+  transition: all 0.2s ease-in-out;
 }
 body .button--primary:hover {
   transition: all 0.2s ease-in-out;
   background-color: #30343F;
   color: #d0bffc;
   box-shadow: #d0bffc 0px 0px 10px;
+}
+body .button--secondary {
+  transition: all 0.3s ease-in-out;
 }
 body .button--secondary:hover {
   transition: all 0.2s ease-in-out;

@@ -35,7 +35,7 @@ body {
     background: none;
     color: $primary-color;
     font-family: 'Montserrat', sans-serif;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     border: $primary-color 3px solid;
     cursor: pointer;
@@ -52,6 +52,7 @@ body {
     color: $background-color;
     background-color: $primary-color;
     font-weight: bold;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       transition: all 0.2s ease-in-out;
@@ -62,6 +63,8 @@ body {
   }
 
   .button--secondary {
+    transition: all 0.3s ease-in-out;
+
     &:hover {
       transition: all 0.2s ease-in-out;
       background-color: $cancel-color;

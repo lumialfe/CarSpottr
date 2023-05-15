@@ -10,7 +10,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/styles/style.css";
+@import "../assets/styles/style.scss";
 
 .header {
   display: flex;
@@ -18,7 +18,7 @@
 
   height: 70px;
 
-  background-color: #30343F;
+  background-color: $background-color;
 
   a {
     margin-left: 20px;
