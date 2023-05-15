@@ -1,7 +1,7 @@
 <template>
     <div class="drop-zone" @dragleave="dragleave" @dragover="dragover" @drop="drop">
         <input id="assetsFieldHandle" ref="file" accept=".jpg,.jpeg,.png" style="display: none" type="file"
-               @change="onChange"/>
+               @change="onChange(true)"/>
         <label class="block cursor-pointer" for="assetsFieldHandle">
             <p>
                 Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
@@ -76,9 +76,8 @@ export default {
         }
     },
     methods: {
-        onChange(event) {
-            this.fileList = [...this.$refs.file.files];
-            this.onFileChange(event);
+        onChange(flag) {
+            this.onFileChange(flag);
         },
         remove() {
             this.fileList = [];
@@ -92,10 +91,13 @@ export default {
         drop(event) {
             event.preventDefault();
             this.fileList = event.dataTransfer.files;
-            this.onChange(event);
+            this.onChange(false);
         },
-        onFileChange: async function (event) {
-            const file = event.target.files[0]
+        onFileChange: async function (flag) {
+            if (flag) {
+                this.fileList = this.$refs.file.files;
+            }
+            const file = this.fileList[0]
             if (!file) {
                 return false
             }

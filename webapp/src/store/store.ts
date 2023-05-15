@@ -8,14 +8,18 @@ export const store: Store<ComponentCustomProperties> = createStore({
         previewUrl: "",
         isShowingResults: false,
         isLoading: false,
-        result: ""
+        res_img: "",
+        res_mask: "",
+        res_res: ""
     },
     getters: {
         files: (state) => state.files,
         previewUrl: (state) => state.previewUrl,
         isShowingResults: (state) => state.isShowingResults,
         isLoading: (state) => state.isLoading,
-        getResult: (state) => state.result
+        getResImg: (state) => state.res_img,
+        getResMask: (state) => state.res_mask,
+        getResRes: (state) => state.res_res
     },
     mutations: {
         setFiles(state, file) {
@@ -33,8 +37,14 @@ export const store: Store<ComponentCustomProperties> = createStore({
         setIsLoading(state, isLoading) {
             state.isLoading = isLoading;
         },
-        setResult(state, result) {
-            state.result = result;
+        setResImg(state, result) {
+            state.res_img = result;
+        },
+        setResMask(state, result) {
+            state.res_mask = result;
+        },
+        setResRes(state, result) {
+            state.res_res = result;
         }
     },
     actions: {
@@ -57,11 +67,25 @@ export const store: Store<ComponentCustomProperties> = createStore({
                 .then(response => response.json())
                 .then(response => {
                     console.log(response);
-                    commit("setResult", "data:image/jpg;base64," + response["mask"].split("'")[1]);
+                    commit("setResImg", "data:image/jpg;base64," + response["image"].split("'")[1]);
+                    commit("setResMask", "data:image/jpg;base64," + response["mask"].split("'")[1]);
+                    commit("setResRes", "data:image/jpg;base64," + response["result"].split("'")[1]);
                 })
 
             commit("setIsLoading", false);
             commit("setIsShowingResults", true);
+        },
+        save(state) {
+            let a = document.createElement('a');
+            a.setAttribute("href", state.getters["getResImg"]);
+            a.setAttribute("download", "original.png");
+            a.click();
+            a.setAttribute("href", state.getters["getResMask"]);
+            a.setAttribute("download", "mask.png");
+            a.click();
+            a.setAttribute("href", state.getters["getResRes"]);
+            a.setAttribute("download", "result.png");
+            a.click();
         }
     }
 });

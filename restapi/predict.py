@@ -36,6 +36,12 @@ app.add_middleware(
     allow_headers = headers    
 )
 
+def encode(img):
+    img = cv2.imencode('.png', img)
+    img = img[1]
+    img = base64.b64encode(img)
+    return img
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to the CarSpottr API!"}
@@ -43,9 +49,7 @@ async def root():
 class Params(BaseModel):
     image: str
 
-@app.post(
-    "/predict/",
-)
+@app.post("/predict/")
 async def predict(params: Params):
     if params.image == "":
         return {"message": "No image link provided"}
@@ -84,17 +88,14 @@ async def predict(params: Params):
             else:
                  y[i][j] = 0
                  res[i][j][3] = 0
-                
-    
-    
-    mask = cv2.imencode('.png', res)
-    mask = mask[1]
-    
-    print(mask)
-    
-    mask = base64.b64encode(mask)
-    #print(mask)
-    return {"mask" : str(mask)}
+
+    x = encode(x)
+    y = encode(y)
+    res = encode(res)
+        
+    return {"image" : str(x),
+            "mask" : str(y),
+            "result" : str(res)}
 
     
     
