@@ -1,5 +1,8 @@
 FROM node:17.4.0
 
+# Maintainer info
+LABEL maintainer="UO270139@uniovi.es"
+
 # install simple http server for serving static content
 RUN npm install -g http-server
 

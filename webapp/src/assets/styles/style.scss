@@ -1,7 +1,7 @@
 $background-color: #30343F;
 $primary-color: #d0bffc;
+$secondary-color: #ffb3a6;
 $text-color: #FAFAFF;
-$cancel-color: #ffa6a6;
 
 body {
   margin: 0;
@@ -31,49 +31,8 @@ body {
     }
   }
 
-  button {
-    background: none;
-    color: $primary-color;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: $primary-color 3px solid;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 20px;
-
-    &:hover {
-      transition: all 0.3s ease-in-out;
-      color: $background-color;
-    }
-  }
-
-  .button--primary {
-    color: $background-color;
-    background-color: $primary-color;
-    font-weight: bold;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      transition: all 0.2s ease-in-out;
-      background-color: $background-color;
-      color: $primary-color;
-      box-shadow: $primary-color 0px 0px 10px;
-    }
-  }
-
-  .button--secondary {
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      transition: all 0.2s ease-in-out;
-      background-color: $cancel-color;
-      border: $cancel-color 3px solid;
-      font-weight: bold;
-    }
-  }
-
   .close-button {
+    color: $text-color;
     border: none;
     background: none;
     font-size: 30px;

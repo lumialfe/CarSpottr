@@ -87,6 +87,9 @@ export const store: Store<ComponentCustomProperties> = createStore({
             a.setAttribute("href", state.getters["getResRes"]);
             a.setAttribute("download", "result.png");
             a.click();
+        },
+        try() {
+            console.log("click!");
         }
     }
 });

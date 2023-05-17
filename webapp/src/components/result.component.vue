@@ -14,8 +14,11 @@
             </div>
         </div>
         <div v-if='store.getters["getResImg"]' class="buttons">
-            <button class="button--primary" @click="save()">Download</button>
-            <button class="button--secondary" @click="exit()">Try Again</button>
+            <alfa-button color="secondary" icon="fa fa-rotate-left" type="outline" @click="exit()">Try Again
+            </alfa-button>
+            <alfa-button color="primary" icon="fa fa-download" type="solid" @click="save()">
+                Download
+            </alfa-button>
         </div>
     </div>
     <Loading v-else></Loading>
@@ -23,11 +26,12 @@
 
 <script>
 import {store} from "@/store/store";
-import Loading from "@/components/Loading.vue";
+import Loading from "@/components/loading.component.vue";
+import AlfaButton from "@/components/button.component.vue";
 
 export default {
     name: "Results",
-    components: {Loading},
+    components: {AlfaButton, Loading},
     computed: {
         store() {
             return store
@@ -48,26 +52,27 @@ export default {
 @import "../assets/styles/style.scss";
 
 .results {
+  width: 100%;
+
   .img_results {
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: 250px auto;
     gap: 15px;
 
-    padding: 30px;
     border-radius: 15px;
     border: 5px solid $primary-color;
 
-    width: 600px;
+    padding: 10px;
 
     .left {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 10px;
 
       img {
-        width: 90%;
+        width: 100%;
       }
     }
 
@@ -76,9 +81,10 @@ export default {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 15px;
 
       img {
-        width: 70%;
+        width: 69%;
       }
     }
 
@@ -99,7 +105,11 @@ export default {
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 10px;
+
+    margin: 20px 0;
+
+    width: 100%;
   }
 }
 </style>

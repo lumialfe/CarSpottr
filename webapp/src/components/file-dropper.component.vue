@@ -21,13 +21,16 @@
         </ul>
     </div>
     <div v-if="store.getters.files.length" class="buttons">
-        <button class="button--secondary" @click="cancel()">Cancel</button>
-        <button class="button--primary" @click="next()">Next</button>
+        <alfa-button color="secondary" icon="fa fa-times" type="solid" @click="cancel()">Cancel</alfa-button>
+        <alfa-button color="primary" icon="fa fa-chevron-right" type="solid" @click="next()">
+            Next
+        </alfa-button>
     </div>
 </template>
 
 <script>
 import {store} from "@/store/store";
+import AlfaButton from "@/components/button.component.vue";
 
 export async function fileListToBase64(fileList) {
     // create function which return resolved promise
@@ -56,6 +59,7 @@ export async function fileListToBase64(fileList) {
 
 export default {
     name: "FileDroppper",
+    components: {AlfaButton},
     computed: {
         store() {
             return store
@@ -135,9 +139,8 @@ export default {
 .drop-zone {
   border: 5px dotted $primary-color;
   border-radius: 50px;
-  padding: 50px;
-  width: 600px;
-  height: 100px;
+  width: 100%;
+  height: 350px;
 
   display: flex;
   flex-direction: column;
@@ -164,7 +167,7 @@ export default {
     justify-content: space-around;
 
     .img--preview {
-      max-height: 100px;
+      max-height: 200px;
       border-radius: 10px;
     }
   }
@@ -175,8 +178,10 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 15px;
+  gap: 10px;
 
-  width: 700px;
+  margin: 20px 0;
+
+  width: 100%;
 }
 </style>

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import Header from "./components/Header.vue";
-import Main from "./components/Main.vue";
-import Footer from "./components/Footer.vue";</script>
+import Header from "./components/header.component.vue";
+import Main from "./components/main-view.component.vue";
+import Footer from "./components/footer.component.vue";</script>
 
 <template>
-  <Header></Header>
-  <Main></Main>
-  <Footer></Footer>
+    <Header></Header>
+    <Main></Main>
+    <Footer></Footer>
 </template>
 
 <style lang="scss" scoped>
