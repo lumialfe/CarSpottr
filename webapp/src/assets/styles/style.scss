@@ -1,13 +1,14 @@
-$background-color: #30343F;
+$background-color: #30343f;
 $primary-color: #d0bffc;
 $secondary-color: #ffb3a6;
-$text-color: #FAFAFF;
+$text-color: #fafaff;
 
 body {
   margin: 0;
   padding: 0;
 
-  background-color: $background-color;
+  background: $background-color;
+  
   color: $text-color;
   font-family: 'Montserrat', sans-serif;
 

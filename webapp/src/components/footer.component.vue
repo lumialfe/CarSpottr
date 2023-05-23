@@ -9,7 +9,7 @@
         UniOvi</a>
     </div>
     <div class="footer--part">
-      <a href="/about.html"><i class="fa-solid fa-user"></i>
+      <a href="https://europa.eu/europass/eportfolio/api/eprofile/shared-profile/4ada6c97-3625-4845-beab-623683fce3ac?view=html"><i class="fa-solid fa-user"></i>
         About the author</a>
     </div>
   </footer>

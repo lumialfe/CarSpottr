@@ -63,7 +63,11 @@ export default defineComponent({
 
   transition: all 0.2s ease-in-out;
 
-  padding: 0 5px;
+  padding: 0 20px;
+
+  &:hover {
+      cursor: pointer;
+  }
 
   &--solid {
     &#{ $base-class } {
@@ -104,7 +108,6 @@ export default defineComponent({
       border: 2px solid;
 
       &--primary {
-        background-color: $background-color;
         color: $primary-color;
         border-color: $primary-color;
 
@@ -121,7 +124,6 @@ export default defineComponent({
       }
 
       &--secondary {
-        background-color: $background-color;
         color: $secondary-color;
         border-color: $secondary-color;
 

@@ -13,7 +13,7 @@
                     <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
                     <p v-else>Couldn't load preview</p>
                 </output>
-                <button class="close-button" title="Remove file" type="button"
+                <button class="close-button"
                         @click="remove()">
                     <i aria-hidden="true" class="fa fa-times"></i>
                 </button>
@@ -165,6 +165,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
+      gap: 20px;
+
+      button {
+
+          &:hover {
+              cursor: pointer;
+          }
+      }
 
     .img--preview {
       max-height: 200px;
