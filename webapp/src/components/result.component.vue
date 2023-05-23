@@ -2,16 +2,18 @@
     <div v-if='store.getters["getResImg"]' class="results">
         <h1>Results</h1>
         <div class="img_results">
-            <div class="left">
-                <img v-if='store.getters["getResImg"]' id="result_img" :src='store.getters["getResImg"]'
+            <ResultCard title="Original" v-bind:type="'secondary'">
+                <img v-if='store.getters["getResImg"]' :class="'card--image'" :src='store.getters["getResImg"]'
                      alt="Cropped image."/>
-                <img v-if='store.getters["getResMask"]' id="result_img" :src='store.getters["getResMask"]'
+            </ResultCard>
+            <ResultCard title="Mask" v-bind:type="'secondary'">
+                <img v-if='store.getters["getResMask"]' :class="'card--image'" :src='store.getters["getResMask"]'
                      alt="Cropped image."/>
-            </div>
-            <div class="right">
-                <img v-if='store.getters["getResRes"]' id="result_img" :src='store.getters["getResRes"]'
+            </ResultCard>
+            <ResultCard title="Result" v-bind:type="'primary'">
+                <img v-if='store.getters["getResRes"]' :class="'card--image'" :src='store.getters["getResRes"]'
                      alt="Cropped image."/>
-            </div>
+            </ResultCard>
         </div>
         <div v-if='store.getters["getResImg"]' class="buttons">
             <alfa-button color="secondary" icon="fa fa-rotate-left" type="outline" @click="exit()">Try Again
@@ -28,10 +30,11 @@
 import {store} from "@/store/store";
 import Loading from "@/components/loading.component.vue";
 import AlfaButton from "@/components/button.component.vue";
+import ResultCard from "@/components/result-card.component.vue";
 
 export default {
     name: "Results",
-    components: {AlfaButton, Loading},
+    components: {ResultCard, AlfaButton, Loading},
     computed: {
         store() {
             return store
@@ -55,49 +58,11 @@ export default {
   width: 100%;
 
   .img_results {
-    display: grid;
-    grid-template-columns: 250px auto;
-    gap: 15px;
-
+    display: flex;
     border-radius: 15px;
-    border: 5px solid $primary-color;
-
-    padding: 10px;
-
-    .left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    .right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-
-      img {
-        width: 69%;
-      }
-    }
-
-    img {
-      border-radius: 15px;
-      transition: all .3s ease-in-out;
-
-      &:hover {
-        transition: all .3s ease-in-out;
-
-        scale: 1.2;
-      }
-    }
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
   }
 
   .buttons {
@@ -110,6 +75,26 @@ export default {
     margin: 20px 0;
 
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .results {
+
+    h1 {
+      margin-left: 20px;
+    }
+
+    .img_results {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .buttons {
+      justify-content: center;
+    }
   }
 }
 </style>

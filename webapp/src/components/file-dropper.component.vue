@@ -3,9 +3,9 @@
         <input id="assetsFieldHandle" ref="file" accept=".jpg,.jpeg,.png" style="display: none" type="file"
                @change="onChange(true)"/>
         <label class="block cursor-pointer" for="assetsFieldHandle">
-            <p>
+            <span>
                 Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
-            </p>
+            </span>
         </label>
         <ul v-if="store.getters.files.length">
             <li v-for="file in store.getters.files" class="text-sm p-1">
@@ -32,9 +32,8 @@
 import {store} from "@/store/store";
 import AlfaButton from "@/components/button.component.vue";
 
+// Gets the images and transforms them to base64
 export async function fileListToBase64(fileList) {
-    // create function which return resolved promise
-    // with data:base64 string
     function getBase64(file) {
         const reader = new FileReader()
         return new Promise(resolve => {
@@ -45,15 +44,12 @@ export async function fileListToBase64(fileList) {
         })
     }
 
-    // here will be array of promisified functions
     const promises = []
 
-    // loop through fileList with for loop
     for (let i = 0; i < fileList.length; i++) {
         promises.push(getBase64(fileList[i]))
     }
 
-    // array with base64 strings
     return await Promise.all(promises)
 }
 
@@ -118,7 +114,6 @@ export default {
 
             const arrayOfBase64 = await fileListToBase64([file]);
 
-            //console.log(arrayOfBase64[0].split(",")[1]);
             store.commit("setFiles", [arrayOfBase64[0].split(",")[1]]);
 
         },
@@ -137,7 +132,6 @@ export default {
 @import "../assets/styles/style.scss";
 
 .drop-zone {
-  border: 5px dotted $primary-color;
   border-radius: 50px;
   width: 100%;
   height: 350px;
@@ -148,12 +142,19 @@ export default {
   justify-content: center;
   transition: all 0.3s ease-in-out;
 
+  border: 2px solid $primary-color;
+  box-shadow: $primary-color 0 0 15px;
+
   &:hover {
     transition: all 0.3s ease-in-out;
-    //TODO
+    box-shadow: $primary-color 0 0 50px;
   }
 
-  p {
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+
     .link {
       font-weight: bold;
       cursor: pointer;
@@ -165,14 +166,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
-      gap: 20px;
+    gap: 20px;
 
-      button {
+    button {
 
-          &:hover {
-              cursor: pointer;
-          }
+      &:hover {
+        cursor: pointer;
       }
+    }
 
     .img--preview {
       max-height: 200px;
@@ -191,5 +192,31 @@ export default {
   margin: 20px 0;
 
   width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .drop-zone {
+    height: 60vh;
+    width: 60%;
+    font-size: .8rem;
+    padding: 10%;
+    text-align: center;
+
+    ul {
+      padding: 0;
+
+      li {
+        flex-direction: column;
+        gap: 10px;
+
+        .img--preview {
+          max-height: 150px;
+        }
+      }
+    }
+  }
+  .buttons {
+    justify-content: center;
+  }
 }
 </style>

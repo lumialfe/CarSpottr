@@ -31,8 +31,15 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-    height: 95vh;
-  width: 900px;
+  height: 95vh;
+  width: 1200px;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-view {
+    width: 100vw;
+    height: fit-content;
+  }
 }
 </style>

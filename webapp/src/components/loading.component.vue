@@ -1,5 +1,7 @@
 <template>
-    <h1>Loading...</h1>
+    <div class="loading">
+        <h1>Loading...</h1>
+    </div>
 </template>
 
 <script>
@@ -16,6 +18,16 @@ h1 {
 @keyframes blinker {
   50% {
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .loading {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

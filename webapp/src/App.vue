@@ -4,13 +4,22 @@ import Main from "./components/main-view.component.vue";
 import Footer from "./components/footer.component.vue";</script>
 
 <template>
-    <Header></Header>
-    <Main></Main>
-    <Footer></Footer>
+    <div class="main">
+        <Header></Header>
+        <Main></Main>
+        <Footer></Footer>
+    </div>
 </template>
 
 <style lang="scss" scoped>
+.main {
+}
 
-@media (min-width: 1024px) {
+@media only screen and (max-width: 600px) {
+  .main {
+    display: grid;
+    grid-template-rows: 70px auto auto;
+    gap: 50px;
+  }
 }
 </style>
