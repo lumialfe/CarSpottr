@@ -71,4 +71,18 @@ export default {
     font-weight: 600;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .card {
+    .image-container {
+      width: 280px;
+      height: 280px;
+
+      .card--image {
+        height: 280px;
+      }
+    }
+  }
+}
+
 </style>
