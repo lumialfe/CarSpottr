@@ -8,7 +8,7 @@ body {
   padding: 0;
 
   background: $background-color;
-  
+
   color: $text-color;
   font-family: 'Montserrat', sans-serif;
 
@@ -48,5 +48,11 @@ body {
       border: none;
       scale: 1.5;
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 1rem;
   }
 }

@@ -47,7 +47,37 @@ export default {
   padding: 10px;
   background-color: lighten($background-color, 6.9%);
   color: $text-color;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+  animation: 1s ease-in-out 0s 1 slideIn;
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-30%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  transition: width 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    & > .image-container {
+      width: fit-content;
+      transition: width 0.3s ease-in-out;
+    }
+
+
+    & > .image-container > .card--image {
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.1);
+    }
+  }
 
   .image-container {
     width: 369px;
@@ -74,6 +104,22 @@ export default {
 
 @media only screen and (max-width: 600px) {
   .card {
+    &:hover {
+      cursor: default;
+    }
+
+    &:active {
+      & > .image-container {
+        width: 280px;
+      }
+
+
+      & > .image-container > .card--image {
+        transition: all 0.3s ease-in-out;
+        transform: none;
+      }
+    }
+
     .image-container {
       width: 280px;
       height: 280px;
@@ -81,6 +127,17 @@ export default {
       .card--image {
         height: 280px;
       }
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(30%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
 }

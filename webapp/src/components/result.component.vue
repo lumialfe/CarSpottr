@@ -2,19 +2,20 @@
     <div v-if='store.getters["getResImg"]' class="results">
         <h1>Results</h1>
         <div class="img_results">
-            <ResultCard title="Original" v-bind:type="'secondary'">
-                <img v-if='store.getters["getResImg"]' :class="'card--image'" :src='store.getters["getResImg"]'
+            <ResultCard v-if='store.getters["getResImg"]' title="Original" v-bind:type="'secondary'">
+                <img :class="'card--image'" :src='store.getters["getResImg"]'
                      alt="Cropped image."/>
             </ResultCard>
-            <ResultCard title="Mask" v-bind:type="'secondary'">
-                <img v-if='store.getters["getResMask"]' :class="'card--image'" :src='store.getters["getResMask"]'
+            <ResultCard v-if='store.getters["getResMask"]' title="Mask" v-bind:type="'secondary'">
+                <img :class="'card--image'" :src='store.getters["getResMask"]'
                      alt="Cropped image."/>
             </ResultCard>
-            <ResultCard title="Result" v-bind:type="'primary'">
-                <img v-if='store.getters["getResRes"]' :class="'card--image'" :src='store.getters["getResRes"]'
+            <ResultCard v-if='store.getters["getResRes"]' title="Result" v-bind:type="'primary'">
+                <img :class="'card--image'" :src='store.getters["getResRes"]'
                      alt="Cropped image."/>
             </ResultCard>
         </div>
+
         <div v-if='store.getters["getResImg"]' class="buttons">
             <alfa-button color="secondary" icon="fa fa-rotate-left" type="outline" @click="exit()">Try Again
             </alfa-button>
@@ -61,7 +62,7 @@ export default {
     display: flex;
     border-radius: 15px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
   }
 
@@ -86,7 +87,7 @@ export default {
     }
 
     .img_results {
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
       justify-content: center;
       gap: 10px;

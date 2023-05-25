@@ -146,4 +146,11 @@ export default defineComponent({
     opacity: 0.5;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .alfa-button {
+    font-size: .7rem;
+  }
+}
+
 </style>

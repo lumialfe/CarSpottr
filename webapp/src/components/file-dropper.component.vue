@@ -7,18 +7,20 @@
                 Drag and drop your Car Picture or <span class="link">click here</span> to choose a file
             </span>
         </label>
-        <ul v-if="store.getters.files.length">
-            <li v-for="file in store.getters.files" class="text-sm p-1">
-                <output>
-                    <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
-                    <p v-else>Couldn't load preview</p>
-                </output>
-                <button class="close-button"
-                        @click="remove()">
-                    <i aria-hidden="true" class="fa fa-times"></i>
-                </button>
-            </li>
-        </ul>
+        <Transition name="slide-fade">
+            <ul v-if="store.getters.files.length">
+                <li v-for="file in store.getters.files" class="text-sm p-1">
+                    <output>
+                        <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
+                        <p v-else>Couldn't load preview</p>
+                    </output>
+                    <button class="close-button"
+                            @click="remove()">
+                        <i aria-hidden="true" class="fa fa-times"></i>
+                    </button>
+                </li>
+            </ul>
+        </Transition>
     </div>
     <div v-if="store.getters.files.length" class="buttons">
         <alfa-button color="secondary" icon="fa fa-times" type="solid" @click="cancel()">Cancel</alfa-button>
@@ -218,5 +220,20 @@ export default {
   .buttons {
     justify-content: center;
   }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-fade-enter-from {
+  transform: translateX(25%);
+  opacity: 0;
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-25%);
+  opacity: 0;
 }
 </style>
