@@ -43,8 +43,9 @@ export default defineComponent({
 .alfa-button {
   $base-class: &;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
+  font-size: 1.1rem;
 
   min-width: 69px;
   min-height: 35px;
@@ -63,10 +64,10 @@ export default defineComponent({
 
   transition: all 0.2s ease-in-out;
 
-  padding: 0 20px;
+  padding: 15px 30px;
 
   &:hover {
-      cursor: pointer;
+    cursor: pointer;
   }
 
   &--solid {

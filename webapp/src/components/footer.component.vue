@@ -44,6 +44,14 @@ footer {
 
     a {
       color: $background-color;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-align: center;
+
+      i {
+        width: 30px;
+      }
 
       &:hover {
         cursor: pointer;
