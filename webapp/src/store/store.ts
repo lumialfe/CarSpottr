@@ -68,9 +68,9 @@ export const store: Store<ComponentCustomProperties> = createStore({
                 .then(response => response.json())
                 .then(response => {
                     console.log(response);
-                    commit("setResImg", "data:image/jpg;base64," + response["image"].split("'")[1]);
-                    commit("setResMask", "data:image/jpg;base64," + response["mask"].split("'")[1]);
-                    commit("setResRes", "data:image/jpg;base64," + response["result"].split("'")[1]);
+                    commit("setResImg", "data:image/jpg;base64," + response["v1"].split("'")[1]);
+                    commit("setResMask", "data:image/jpg;base64," + response["v2"].split("'")[1]);
+                    commit("setResRes", "data:image/jpg;base64," + response["v3"].split("'")[1]);
                 })
 
             commit("setIsLoading", false);

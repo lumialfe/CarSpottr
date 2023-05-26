@@ -2,15 +2,15 @@
     <div v-if='store.getters["getResImg"]' class="results">
         <h1>Results</h1>
         <div class="img_results">
-            <ResultCard v-if='store.getters["getResImg"]' title="Original" v-bind:type="'secondary'">
+            <ResultCard v-if='store.getters["getResImg"]' title="No Data Augmentation" v-bind:type="'secondary'">
                 <img :class="'card--image'" :src='store.getters["getResImg"]'
                      alt="Cropped image."/>
             </ResultCard>
-            <ResultCard v-if='store.getters["getResMask"]' title="Mask" v-bind:type="'secondary'">
+            <ResultCard v-if='store.getters["getResMask"]' title="Data Augmentation" v-bind:type="'secondary'">
                 <img :class="'card--image'" :src='store.getters["getResMask"]'
                      alt="Cropped image."/>
             </ResultCard>
-            <ResultCard v-if='store.getters["getResRes"]' title="Result" v-bind:type="'primary'">
+            <ResultCard v-if='store.getters["getResRes"]' title="Blender Augmentation" v-bind:type="'primary'">
                 <img :class="'card--image'" :src='store.getters["getResRes"]'
                      alt="Cropped image."/>
             </ResultCard>
