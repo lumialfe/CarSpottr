@@ -15,14 +15,15 @@
                      alt="Cropped image."/>
             </ResultCard>
         </div>
-
-        <div v-if='store.getters["getResImg"]' class="buttons">
-            <alfa-button color="secondary" icon="fa fa-rotate-left" type="outline" @click="exit()">Try Again
-            </alfa-button>
-            <alfa-button color="primary" icon="fa fa-download" type="solid" @click="save()">
-                Download
-            </alfa-button>
-        </div>
+        <Transition>
+            <div v-if='store.getters["getResImg"]' class="buttons">
+                <alfa-button color="secondary" icon="fa fa-rotate-left" type="outline" @click="exit()">Try Again
+                </alfa-button>
+                <alfa-button color="primary" icon="fa fa-download" type="solid" @click="save()">
+                    Download
+                </alfa-button>
+            </div>
+        </Transition>
     </div>
     <Loading v-else></Loading>
 </template>

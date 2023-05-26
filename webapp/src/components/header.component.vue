@@ -16,16 +16,43 @@
   display: flex;
   align-items: baseline;
 
-  height: 70px;
 
   background-color: $background-color;
+  width: 1200px;
+  margin: auto;
+  border-radius: 8px;
 
   a {
     margin-left: 20px;
+    transition: all .5s ease-in-out;
+
+    &:hover {
+      -webkit-filter: drop-shadow(0 0 10px $primary-color);
+      filter: drop-shadow(0 0 10px $primary-color);
+      transition: all .5s ease-in-out;
+    }
   }
 
   .p--small {
-    font-size: .6rem;
+    font-size: .9rem;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .header {
+    justify-content: center;
+    width: 100vw;
+
+    margin: 0;
+
+    a {
+      margin: 0;
+    }
+
+    .p--small {
+      font-size: .6rem;
+    }
+  }
+}
+
 </style>

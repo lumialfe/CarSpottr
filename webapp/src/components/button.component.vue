@@ -62,7 +62,7 @@ export default defineComponent({
   justify-content: space-around;
   gap: 5px;
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
   padding: 15px 30px;
 
@@ -78,11 +78,11 @@ export default defineComponent({
 
         &#{ $base-class } {
           &:hover {
-            background-color: lighten($primary-color, 5%);
+            background-color: lighten($primary-color, 7%);
           }
 
           &:active {
-            background-color: darken($primary-color, 5%);
+            background-color: darken($primary-color, 7%);
           }
         }
       }
@@ -93,11 +93,11 @@ export default defineComponent({
 
         &#{ $base-class } {
           &:hover {
-            background-color: lighten($secondary-color, 5%);
+            background-color: lighten($secondary-color, 7%);
           }
 
           &:active {
-            background-color: darken($secondary-color, 5%);
+            background-color: darken($secondary-color, 7%);
           }
         }
       }
@@ -114,12 +114,12 @@ export default defineComponent({
 
         &#{ $base-class } {
           &:hover {
-            background-color: lighten($primary-color, 5%);
+            background-color: lighten($primary-color, 7%);
             color: $background-color;
           }
 
           &:active {
-            background-color: darken($primary-color, 5%);
+            background-color: darken($primary-color, 7%);
           }
         }
       }
@@ -130,12 +130,12 @@ export default defineComponent({
 
         &#{ $base-class } {
           &:hover {
-            background-color: lighten($secondary-color, 5%);
+            background-color: lighten($secondary-color, 7%);
             color: $background-color;
           }
 
           &:active {
-            background-color: darken($secondary-color, 5%);
+            background-color: darken($secondary-color, 7%);
           }
         }
       }

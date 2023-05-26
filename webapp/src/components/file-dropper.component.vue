@@ -1,6 +1,7 @@
 <template>
-    <div class="drop-zone" @dragleave="dragleave" @dragover="dragover" @drop="drop">
-        <input id="assetsFieldHandle" ref="file" accept=".jpg,.jpeg,.png" style="display: none" type="file"
+    <div class="drop-zone" @dragleave="dragleave"
+         @dragover="dragover" @drop="drop">
+        <input id="assetsFieldHandle" ref="file" accept=".jpg,.jpeg,.png,.webp" style="display: none" type="file"
                @change="onChange(true)"/>
         <label class="block cursor-pointer" for="assetsFieldHandle">
             <span>
@@ -8,26 +9,26 @@
             </span>
         </label>
         <Transition name="slide-fade">
-            <ul v-if="store.getters.files.length">
-                <li v-for="file in store.getters.files" class="text-sm p-1">
-                    <output>
-                        <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
-                        <p v-else>Couldn't load preview</p>
-                    </output>
-                    <button class="close-button"
-                            @click="remove()">
-                        <i aria-hidden="true" class="fa fa-times"></i>
-                    </button>
-                </li>
-            </ul>
+            <div v-if="store.getters.files.length" class="drop-result">
+                <output>
+                    <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
+                    <p v-else>Couldn't load preview</p>
+                </output>
+                <button class="close-button"
+                        @click="remove()">
+                    <i aria-hidden="true" class="fa fa-times"></i>
+                </button>
+            </div>
         </Transition>
     </div>
-    <div v-if="store.getters.files.length" class="buttons">
-        <alfa-button color="secondary" icon="fa fa-times" type="solid" @click="cancel()">Cancel</alfa-button>
-        <alfa-button color="primary" icon="fa fa-chevron-right" type="solid" @click="next()">
-            Next
-        </alfa-button>
-    </div>
+    <Transition>
+        <div v-if="store.getters.files.length" class="buttons">
+            <alfa-button color="secondary" icon="fa fa-times" type="solid" @click="cancel()">Cancel</alfa-button>
+            <alfa-button color="primary" icon="fa fa-chevron-right" type="solid" @click="next()">
+                Next
+            </alfa-button>
+        </div>
+    </Transition>
 </template>
 
 <script>
@@ -125,6 +126,9 @@ export default {
         },
         next() {
             store.dispatch("predict");
+        },
+        clickInput() {
+            document.getElementById("assetsFieldHandle").click();
         }
     }
 }
@@ -164,11 +168,12 @@ export default {
     }
   }
 
-  li {
+  .drop-result {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 20px;
+    margin-top: 20px;
 
     button {
 
@@ -204,36 +209,18 @@ export default {
     padding: 10%;
     text-align: center;
 
-    ul {
-      padding: 0;
+    .drop-result {
+      flex-direction: column;
+      gap: 10px;
 
-      li {
-        flex-direction: column;
-        gap: 10px;
+      .img--preview {
+        max-height: 150px;
 
-        .img--preview {
-          max-height: 150px;
-        }
       }
     }
   }
   .buttons {
     justify-content: center;
   }
-}
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease-in-out;
-}
-
-.slide-fade-enter-from {
-  transform: translateX(25%);
-  opacity: 0;
-}
-
-.slide-fade-leave-to {
-  transform: translateX(-25%);
-  opacity: 0;
 }
 </style>

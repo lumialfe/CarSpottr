@@ -13,12 +13,14 @@ import Footer from "./components/footer.component.vue";</script>
 
 <style lang="scss" scoped>
 .main {
+  display: grid;
+  grid-template-rows: auto 85vh auto;
 }
 
 @media only screen and (max-width: 600px) {
   .main {
     display: grid;
-    grid-template-rows: 70px auto auto;
+    grid-template-rows: auto 1fr auto;
     gap: 50px;
   }
 }
