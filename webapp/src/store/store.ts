@@ -79,13 +79,13 @@ export const store: Store<ComponentCustomProperties> = createStore({
         save(state) {
             let a = document.createElement('a');
             a.setAttribute("href", state.getters["getResImg"]);
-            a.setAttribute("download", "original.png");
+            a.setAttribute("download", "v1.png");
             a.click();
             a.setAttribute("href", state.getters["getResMask"]);
-            a.setAttribute("download", "mask.png");
+            a.setAttribute("download", "v2.png");
             a.click();
             a.setAttribute("href", state.getters["getResRes"]);
-            a.setAttribute("download", "result.png");
+            a.setAttribute("download", "v3.png");
             a.click();
         },
         try() {
