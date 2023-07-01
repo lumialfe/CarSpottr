@@ -6,11 +6,11 @@
                 <img :class="'card--image'" :src='store.getters["getResV1"]'
                      alt="Cropped image."/>
             </ResultCard>
-            <ResultCard v-if='store.getters["getResMask"]' title="Data Augmentation" v-bind:type="'secondary'">
+            <ResultCard v-if='store.getters["getResV2"]' title="Data Augmentation" v-bind:type="'secondary'">
                 <img :class="'card--image'" :src='store.getters["getResV2"]'
                      alt="Cropped image."/>
             </ResultCard>
-            <ResultCard v-if='store.getters["getResRes"]' title="Blender Augmentation" v-bind:type="'primary'">
+            <ResultCard v-if='store.getters["getResV3"]' title="Blender Augmentation" v-bind:type="'primary'">
                 <img :class="'card--image'" :src='store.getters["getResV3"]'
                      alt="Cropped image."/>
             </ResultCard>
