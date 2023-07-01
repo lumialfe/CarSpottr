@@ -9,18 +9,18 @@ export const store: Store<ComponentCustomProperties> = createStore({
         previewUrl: "",
         isShowingResults: false,
         isLoading: false,
-        res_img: "",
-        res_mask: "",
-        res_res: ""
+        res_v1: "",
+        res_v2: "",
+        res_v3: ""
     },
     getters: {
         files: (state) => state.files,
         previewUrl: (state) => state.previewUrl,
         isShowingResults: (state) => state.isShowingResults,
         isLoading: (state) => state.isLoading,
-        getResImg: (state) => state.res_img,
-        getResMask: (state) => state.res_mask,
-        getResRes: (state) => state.res_res
+        getResV1: (state) => state.res_v1,
+        getResV2: (state) => state.res_v2,
+        getResV3: (state) => state.res_v3
     },
     mutations: {
         setFiles(state, file) {
@@ -38,14 +38,14 @@ export const store: Store<ComponentCustomProperties> = createStore({
         setIsLoading(state, isLoading) {
             state.isLoading = isLoading;
         },
-        setResImg(state, result) {
-            state.res_img = result;
+        setResV1(state, result) {
+            state.res_v1 = result;
         },
-        setResMask(state, result) {
-            state.res_mask = result;
+        setResV2(state, result) {
+            state.res_v2 = result;
         },
-        setResRes(state, result) {
-            state.res_res = result;
+        setResV3(state, result) {
+            state.res_v3 = result;
         }
     },
     actions: {
@@ -68,9 +68,9 @@ export const store: Store<ComponentCustomProperties> = createStore({
                 .then(response => response.json())
                 .then(response => {
                     console.log(response);
-                    commit("setResImg", "data:image/jpg;base64," + response["v1"].split("'")[1]);
-                    commit("setResMask", "data:image/jpg;base64," + response["v2"].split("'")[1]);
-                    commit("setResRes", "data:image/jpg;base64," + response["v3"].split("'")[1]);
+                    commit("setResV1", "data:image/jpg;base64," + response["v1"].split("'")[1]);
+                    commit("setResV2", "data:image/jpg;base64," + response["v2"].split("'")[1]);
+                    commit("setResV3", "data:image/jpg;base64," + response["v3"].split("'")[1]);
                 })
 
             commit("setIsLoading", false);
@@ -78,13 +78,13 @@ export const store: Store<ComponentCustomProperties> = createStore({
         },
         save(state) {
             let a = document.createElement('a');
-            a.setAttribute("href", state.getters["getResImg"]);
+            a.setAttribute("href", state.getters["getResV1"]);
             a.setAttribute("download", "v1.png");
             a.click();
-            a.setAttribute("href", state.getters["getResMask"]);
+            a.setAttribute("href", state.getters["getResV2"]);
             a.setAttribute("download", "v2.png");
             a.click();
-            a.setAttribute("href", state.getters["getResRes"]);
+            a.setAttribute("href", state.getters["getResV3"]);
             a.setAttribute("download", "v3.png");
             a.click();
         },

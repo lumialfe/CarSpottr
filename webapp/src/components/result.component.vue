@@ -1,22 +1,22 @@
 <template>
-    <div v-if='store.getters["getResImg"]' class="results">
+    <div v-if='store.getters["getResV1"]' class="results">
         <h1>Results</h1>
         <div class="img_results">
-            <ResultCard v-if='store.getters["getResImg"]' title="No Data Augmentation" v-bind:type="'secondary'">
-                <img :class="'card--image'" :src='store.getters["getResImg"]'
+            <ResultCard v-if='store.getters["getResV1"]' title="No Data Augmentation" v-bind:type="'secondary'">
+                <img :class="'card--image'" :src='store.getters["getResV1"]'
                      alt="Cropped image."/>
             </ResultCard>
             <ResultCard v-if='store.getters["getResMask"]' title="Data Augmentation" v-bind:type="'secondary'">
-                <img :class="'card--image'" :src='store.getters["getResMask"]'
+                <img :class="'card--image'" :src='store.getters["getResV2"]'
                      alt="Cropped image."/>
             </ResultCard>
             <ResultCard v-if='store.getters["getResRes"]' title="Blender Augmentation" v-bind:type="'primary'">
-                <img :class="'card--image'" :src='store.getters["getResRes"]'
+                <img :class="'card--image'" :src='store.getters["getResV3"]'
                      alt="Cropped image."/>
             </ResultCard>
         </div>
         <Transition>
-            <div v-if='store.getters["getResImg"]' class="buttons">
+            <div v-if='store.getters["getResV1"]' class="buttons">
                 <alfa-button color="secondary" icon="fa fa-rotate-left" type="outline" @click="exit()">Try Again
                 </alfa-button>
                 <alfa-button color="primary" icon="fa fa-download" type="solid" @click="save()">

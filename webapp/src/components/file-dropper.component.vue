@@ -11,7 +11,8 @@
         <Transition name="slide-fade">
             <div v-if="store.getters.files.length" class="drop-result">
                 <output>
-                    <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" class="img--preview">
+                    <img v-if="store.getters.previewUrl" :src="store.getters.previewUrl" alt="uploaded image"
+                         class="img--preview"/>
                     <p v-else>Couldn't load preview</p>
                 </output>
                 <button class="close-button"
